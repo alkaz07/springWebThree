@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Отправить файл на анализ</title>
+</head>
+<body>
+    <form method="post" action="/analyze" enctype="multipart/form-data">
+        <input type="file" name="myfile"/>
+        <button type="submit">отправка</button>
+    </form>
+    <p></p>
+    <div th:if="${message != null}">
+        сообщение: <span th:text="${message}"/>
+        <p>размер файла: <span th:text="${size}"/></p>
+        <p>первая строка: <span th:text="${firstline}"/></p>
+    </div>
+
+    <div th:if="${errorMessage != null}">
+        ошибка: <span th:text="${errorMessage}"/>
+    </div>
+
+</body>
+</html>
